@@ -1,7 +1,9 @@
 {
   "main": "server.js",
   "scripts": {
-    "run": "node server.js",
+    "serve": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "cd ../client && quasar serve",
     "dev": "nodemon server.js"
   },
   "dependencies": {
