@@ -37,8 +37,11 @@ If (Test-Path -Path ./AntennaModel)
     #  Go back where we started.
     Pop-Location
     Pop-Location
+
+    Exit
 }
-Else If (Test-Path -Path ./README.md -PathType Leaf)
+
+If (Test-Path -Path ./README.md -PathType Leaf)
 {
     #  The repo exists in the current folder.
 
@@ -51,18 +54,20 @@ Else If (Test-Path -Path ./README.md -PathType Leaf)
 
     #  Go back where we started.
     Pop-Location
-}
-Else
-{
-    #  The repo doesn't exist here.  Clone it.
-    git clone https://github.com/KertDawg/AntennaModel.git
 
-    #  The repo exists down a folder.  Go into the docker subfolder and build the image.
-    Push-Location AntennaModel/docker
-    ./Build.ps1
-
-    #  Go back where we started.
-    Pop-Location
+    Exit
 }
+
+#  The repo doesn't exist here.  Clone it.
+git clone https://github.com/KertDawg/AntennaModel.git
+
+#  The repo exists down a folder.  Go into the docker subfolder and build the image.
+Push-Location AntennaModel/docker
+./Build.ps1
+
+#  Go back where we started.
+Pop-Location
+
+Exit
 
 
