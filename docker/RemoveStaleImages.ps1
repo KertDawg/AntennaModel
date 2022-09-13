@@ -1,8 +1,7 @@
-#  This script removes images with name <none> from Docker Desktop.
+#  This script removes old project images from Docker Desktop.
 
 
-
-$StaleImages = docker images -f "dangling=true" -q
+$StaleImages = docker images -q kertdawg/antenna-model
 
 ForEach ($Image in $StaleImages)
 {
