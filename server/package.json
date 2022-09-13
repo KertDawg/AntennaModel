@@ -3,7 +3,7 @@
   "scripts": {
     "serve": "concurrently --kill-others \"npm run server\" \"npm run client\"",
     "server": "node server.js",
-    "client": "cd ../client && quasar serve",
+    "client": "cd ../client && quasar build && quasar serve dist/spa",
     "dev": "nodemon server.js"
   },
   "dependencies": {
