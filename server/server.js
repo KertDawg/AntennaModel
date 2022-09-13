@@ -22,7 +22,7 @@ router.get("/", function (req, res) {
 eserver.use("/", router);
 
 eserver.listen(process.env.PORT || 3000, "0.0.0.0", function() {
-    console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
+    console.log("Server listening on port %d in %s mode", this.address().port, eserver.settings.env);
 });
 
 
@@ -30,5 +30,5 @@ var eclient = express();
 eclient.use(express.static("../client/dist/spa"))
 
 eclient.listen(process.env.PORT || 4000, "0.0.0.0", function() {
-    console.log("Client listening on port %d in %s mode", this.address().port, app.settings.env);
+    console.log("Client listening on port %d in %s mode", this.address().port, eclient.settings.env);
 });
