@@ -21,7 +21,7 @@ router.get("/", function (req, res) {
 
 eserver.use("/", router);
 
-app.listen(process.env.PORT || 3000, "0.0.0.0", function() {
+eserver.listen(process.env.PORT || 3000, "0.0.0.0", function() {
     console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
