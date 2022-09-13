@@ -1,10 +1,9 @@
 {
   "main": "server.js",
   "scripts": {
-    "serve": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
     "server": "node server.js",
-    "client": "cd ../client && quasar build && quasar serve dist/spa",
-    "dev": "nodemon server.js"
+    "client": "cd ../client && quasar build && quasar serve dist/spa"
   },
   "dependencies": {
     "concurrently": "^7.4.0",
